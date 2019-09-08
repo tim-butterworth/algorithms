@@ -1,0 +1,33 @@
+.board {
+    margin: auto;
+    width: 200px;
+}
+
+.row {
+    display: flex;    
+}
+
+.cell {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding: 5px;
+    background-color: green;
+    box-sizing: border-box;
+}
+
+.margin-top {
+    margin-top: 1px;
+}
+
+.margin-bottom {
+    margin-bottom: 1px;
+}
+
+.margin-left {
+    margin-left: 1px;
+}
+
+.margin-right {
+    margin-right: 1px;
+}
