@@ -13,10 +13,6 @@ const gameCommandHandler = getGameCommandHandler(eventSource);
 function App() {
   return (
 	  <div>
-	  <Game
-             commandHandler={gameCommandHandler}
-             source={eventSource}
-      	  />
 	  <Architecture
              source={eventSource}
 	  />

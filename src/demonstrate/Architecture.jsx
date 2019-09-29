@@ -2,21 +2,31 @@ import React from 'react';
 import * as R from 'ramda';
 import { displayEvent } from './displayEvent';
 import { DemonstrateStack } from "./datastructures/stack";
+import { DemonstrateInsertionSort } from "./datastructures/sorting/insertionsort/DemonstrateInsertionSort";
 
 class Collapsable extends React.Component {
-    constructor() {
-	super();
+    constructor(props) {
+	super(props);
 
-	this.state = { display: true }
+	this.state = {
+	    display: true,
+	    title: props.title
+	}
     }
     
     render() {
 	const toggleDisplay = () => this.setState((previousState, props) => ({ display: (!previousState.display)}))
 	const getDisplayComponents = (child, shouldDisplay) => {
 	    if (shouldDisplay) {
-		return { child, showHide: (<div>hide stack</div>)};
+		return {
+		    child,
+		    showHide: (<div>hide {this.state.title}</div>)
+		};
 	    } else {
-		return { child: (<div></div>), showHide: <div>show stack</div>}
+		return {
+		    child: (<div></div>),
+		    showHide: <div>show {this.state.title}</div>
+		}
 	    }
 	}
 	const displayComponent = getDisplayComponents(this.props.children, this.state.display);
@@ -47,8 +57,11 @@ class Architecture extends React.Component {
 	      <div>
 	        {R.map(displayEvent, this.source.events)}
 	      </div>
-	      <Collapsable>
+	      <Collapsable title="stack">
 	        <DemonstrateStack/>
+	      </Collapsable>
+	      <Collapsable title="sorting">
+	        <DemonstrateInsertionSort/>
 	      </Collapsable>
 	    </div>
 	);
