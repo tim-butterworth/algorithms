@@ -1,6 +1,6 @@
 const nodeFactory = (next, value) => ({
     next,
-    data: { value }
+    data: { ...value }
 })
 
 const terminalNode = {

@@ -1,6 +1,8 @@
 import React from 'react';
 import * as R from 'ramda';
 import { getInsertionSortIterator } from './insertionsort';
+import { randomize } from '../sortingTools';
+
 import './insertionsort.css';
 
 let iterator = null;
@@ -11,8 +13,7 @@ class DemonstrateInsertionSort extends React.Component {
     constructor() {
 	super();
 
-	iterator = getInsertionSortIterator(R.range(1, 100).reverse());
-
+	iterator = getInsertionSortIterator(randomize(R.range(1, 100)));
 	this.state = { sortState: iterator.next() };
     }
 
@@ -23,7 +24,7 @@ class DemonstrateInsertionSort extends React.Component {
 	    insertionPointer
 	} = this.state.sortState;
 	const inCenteredArray = (value) => centered(list.length, value, 5) + (window.innerWidth/4)
-	
+
 	if (iterator.hasMore()) {
 	    setTimeout(() => {
 		this.setState((previousState, props) => ({ sortState: iterator.next() }));

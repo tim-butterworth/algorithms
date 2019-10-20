@@ -18,7 +18,7 @@ const afterInnerWhile = 16
 
 const program = {
     1 :  (state) => {
-        if (state.list.isEmpty || state.list.count == 1) {
+        if (state.list.isEmpty || state.list.count === 1) {
             return done(state);
         } else {
             return normal(2, state);
@@ -202,9 +202,6 @@ const getInsertionSortIterator = (list) => {
     const next = () => {
         if (p === 0) {
             p = 1
-            return currentState
-        } else if (finished) {
-            return currentState
         } else {
             const { updatedFinished, updatedState, updatedP } = applyStep(program[p], currentState)
 

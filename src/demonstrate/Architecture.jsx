@@ -3,13 +3,14 @@ import * as R from 'ramda';
 import { displayEvent } from './displayEvent';
 import { DemonstrateStack } from "./datastructures/stack";
 import { DemonstrateInsertionSort } from "./datastructures/sorting/insertionsort/DemonstrateInsertionSort";
+import { DemonstrateMergeSort } from "./datastructures/sorting/mergesort/DemonstrateMergeSort";
 
 class Collapsable extends React.Component {
     constructor(props) {
 	super(props);
 
 	this.state = {
-	    display: true,
+	    display: false,
 	    title: props.title
 	}
     }
@@ -62,6 +63,9 @@ class Architecture extends React.Component {
 	      </Collapsable>
 	      <Collapsable title="sorting">
 	        <DemonstrateInsertionSort/>
+	      </Collapsable>
+	      <Collapsable title="merge sort">
+	        <DemonstrateMergeSort/>
 	      </Collapsable>
 	    </div>
 	);
